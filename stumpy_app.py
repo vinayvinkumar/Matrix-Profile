@@ -1,4 +1,9 @@
-pip install stumpy, matplotlib
+import sys
+import subprocess
+
+# implement pip as a subprocess:
+subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'stumpy'])
+subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'matplotlib'])
 
 import streamlit as st
 import pandas as pd
