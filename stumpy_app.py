@@ -24,7 +24,7 @@ def app():
     # Check if a file was uploaded
     if uploaded_file is not None:
         # Load the data into a Pandas dataframe
-        data = pd.read_csv(uploaded_file) if uploaded_file.type == "application/vnd.ms-excel" else pd.read_excel(uploaded_file)
+        data = pd.read_csv(uploaded_file) if uploaded_file.type == "text/csv" else pd.read_excel(uploaded_file)
 
         # Let the user select the column for time-series analysis
         column = st.selectbox("Select a column for time-series analysis", data.columns)
