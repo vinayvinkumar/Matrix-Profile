@@ -29,6 +29,11 @@ def app():
         # Let the user select the column for time-series analysis
         column = st.selectbox("Select a column for time-series analysis", data.columns)
 
+        st.write("Time Series Data plot")
+        
+        # Plot the time series graph
+        st.line_chart(data[column], use_container_width=True)
+        
         # Let the user choose the value of m for matrix profile analysis
         m = st.slider("Choose the value of m for matrix profile analysis", min_value=2, max_value=int(len(data[column]) / 2), value=30)
 
@@ -38,12 +43,11 @@ def app():
         # Let the user choose the maximum number of motifs to display
         max_motifs = st.slider("Choose the maximum number of motifs to display", min_value=1, max_value=10, value=5)
 
-        # Plot the matrix profile graph
-        st.line_chart(data[column], use_container_width=True)
-
         # Compute the matrix profile using Stumpy's stump function
         matrix_profile = stumpy.stump(data[column], m)
 
+        st.write("Plot the matrix profile graph")
+        
         # Plot the matrix profile graph
         st.line_chart(matrix_profile[:, 0], use_container_width=True)
 
