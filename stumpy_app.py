@@ -17,7 +17,7 @@ from matplotlib.patches import Rectangle
 # Define the Streamlit app
 def app():
     # Add a title
-    st.title("Time-series analysis using Stumpy")
+    st.title("Modern Time-Series analysis using Matrix Profile with Stumpy")
 
     # Add a file uploader
     uploaded_file = st.file_uploader("Upload your time-series data (CSV or Excel file)", type=["csv", "xlsx"])
@@ -40,7 +40,7 @@ def app():
         m = st.slider("Choose the value of m for matrix profile analysis", min_value=2, max_value=int(len(data[column]) / 2), value=30)
 
         # Let the user choose the maximum number of matches to display in the matrix profile graph
-        max_matches = st.slider("Choose the maximum number of matches to display in the matrix profile graph", min_value=1, max_value=len(data[column]), value=10)
+        max_matches = st.slider("Choose the maximum number of matches to display in the matrix profile graph", min_value=1, max_value=10, value=5)
 
         # Let the user choose the maximum number of motifs to display
         max_motifs = st.slider("Choose the maximum number of motifs to display", min_value=1, max_value=10, value=5)
