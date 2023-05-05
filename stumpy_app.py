@@ -1,9 +1,10 @@
 import sys
-import subprocess
+import subprocess 
 
 # implement pip as a subprocess:
 subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'stumpy'])
 subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'matplotlib'])
+subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'openpyxl'])
 
 import streamlit as st
 import pandas as pd
